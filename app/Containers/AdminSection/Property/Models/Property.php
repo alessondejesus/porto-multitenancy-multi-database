@@ -3,9 +3,12 @@
 namespace App\Containers\AdminSection\Property\Models;
 
 use App\Ship\Parents\Models\Model;
+use Spatie\PrefixedIds\Models\Concerns\HasPrefixedId;
 
 class Property extends Model
 {
+    use HasPrefixedId;
+
     protected $fillable = [
 
     ];

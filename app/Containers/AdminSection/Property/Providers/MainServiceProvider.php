@@ -2,6 +2,7 @@
 
 namespace App\Containers\AdminSection\Property\Providers;
 
+use App\Containers\AdminSection\Property\Models\Property;
 use App\Ship\Parents\Providers\MainProvider;
 
 /**
@@ -29,6 +30,10 @@ class MainServiceProvider extends MainProvider
     public function register(): void
     {
         parent::register();
+
+        \Spatie\PrefixedIds\PrefixedIds::registerModels([
+            'pro' => Property::class,
+        ]);
 
         // $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         // ...
