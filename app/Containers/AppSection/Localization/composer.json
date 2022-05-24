@@ -1,0 +1,16 @@
+{
+    "name": "apiato/localization-container",
+    "description": "An Apiato container which adds localization functionality.",
+    "type": "apiato-container",
+    "license": "MIT",
+    "require": {
+        "ext-intl": "*"
+    },
+    "extra": {
+        "apiato": {
+            "container": {
+                "name": "Localization"
+            }
+        }
+    }
+}

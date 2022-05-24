@@ -12,7 +12,7 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-
+            $table->string('prefixed_id')->nullable()->unique();
             $table->timestamps();
             //$table->softDeletes();
         });

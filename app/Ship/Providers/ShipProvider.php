@@ -39,6 +39,13 @@ class ShipProvider extends MainProvider
         if ($this->app->isLocal()) {
             $this->app->register(IdeHelperServiceProvider::class);
         }
+        
+        if(config("telescope.enabled")){
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
+        
+        $this->app->register(HorizonServiceProvider::class);
 
         parent::register();
     }
