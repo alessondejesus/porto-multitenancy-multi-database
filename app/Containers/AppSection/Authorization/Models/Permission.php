@@ -19,9 +19,11 @@ class Permission extends SpatiePermission
     protected $guard_name = 'web';
 
     protected $fillable = [
+        'id',
         'name',
         'guard_name',
         'display_name',
         'description',
+        'group',
     ];
 }

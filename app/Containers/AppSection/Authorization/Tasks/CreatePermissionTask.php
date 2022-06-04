@@ -17,16 +17,18 @@ class CreatePermissionTask extends Task
         $this->repository = $repository;
     }
 
-    public function run(string $name, string $description = null, string $displayName = null): Permission
+    public function run(int $id, string $name, string $description = null, string $displayName = null, string $group = null): Permission
     {
         app()['cache']->forget('spatie.permission.cache');
 
         try {
             $permission = $this->repository->create([
-                'name' => $name,
-                'description' => $description,
-                'display_name' => $displayName,
-                'guard_name' => 'web',
+                'id' => $id,
+                'name' => trim($name),
+                'description' => trim($description),
+                'display_name' => trim($displayName),
+                'group' => trim($group),
+                'guard_name' => 'api',
             ]);
         } catch (Exception $exception) {
             throw new CreateResourceFailedException();
