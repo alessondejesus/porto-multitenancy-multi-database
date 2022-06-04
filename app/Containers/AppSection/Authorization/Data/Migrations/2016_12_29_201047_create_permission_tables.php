@@ -26,6 +26,7 @@ class CreatePermissionTables extends Migration
             $table->string('guard_name');
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();
+            $table->string('group')->nullable();
             $table->timestamps();
 
             $table->unique(['name', 'guard_name']);
@@ -37,6 +38,7 @@ class CreatePermissionTables extends Migration
             $table->string('guard_name');
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();
+            $table->foreignId('property_id')->nullable()->constrained();
             $table->timestamps();
 
             $table->unique(['name', 'guard_name']);

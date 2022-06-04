@@ -19,10 +19,12 @@ class Role extends SpatieRole
     protected $guard_name = 'web';
 
     protected $fillable = [
+        'id',
         'name',
         'guard_name',
         'display_name',
         'description',
         'level',
+        'property_id'
     ];
 }
