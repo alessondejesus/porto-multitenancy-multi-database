@@ -16,11 +16,6 @@ class CreateMailTemplatesTable extends Migration
             $table->string('subject')->nullable();
             $table->string('system_name');
             $table->longText('template');
-
-            $table->foreignId('property_id')
-                ->nullable()
-                ->constrained();
-
             $table->timestamps();
             $table->softDeletes();
         });

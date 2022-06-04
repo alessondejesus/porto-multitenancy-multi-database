@@ -18,7 +18,6 @@ class CreateMailTemplatesTable extends Migration
             $table->longText('template');
 
             $table->foreignId('property_id')
-                ->nullable()
                 ->constrained();
 
             $table->timestamps();
