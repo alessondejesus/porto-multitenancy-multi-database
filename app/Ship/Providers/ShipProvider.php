@@ -5,6 +5,9 @@ namespace App\Ship\Providers;
 use App\Ship\Parents\Providers\MainProvider;
 use App\Ship\Parents\Providers\RoutesProvider;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
+use Laravel\Passport\Passport;
+use Laravel\Telescope\Telescope;
+use Laravel\Telescope\TelescopeServiceProvider as TelescopeServiceProviderAlias;
 
 class ShipProvider extends MainProvider
 {
@@ -12,7 +15,8 @@ class ShipProvider extends MainProvider
      * Register any Service Providers on the Ship layer (including third party packages).
      */
     public array $serviceProviders = [
-        RoutesProvider::class
+        RoutesProvider::class,
+        HorizonServiceProvider::class
     ];
 
     /**
@@ -39,13 +43,14 @@ class ShipProvider extends MainProvider
         if ($this->app->isLocal()) {
             $this->app->register(IdeHelperServiceProvider::class);
         }
-        
+
         if(config("telescope.enabled")){
-            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProviderAlias::class);
             $this->app->register(TelescopeServiceProvider::class);
         }
-        
-        $this->app->register(HorizonServiceProvider::class);
+
+        Passport::ignoreMigrations();
+        Telescope::ignoreMigrations();
 
         parent::register();
     }

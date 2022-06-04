@@ -69,6 +69,7 @@ class HttpKernel extends LaravelHttpKernel
             ValidateJsonContent::class,
             ProcessETagHeadersMiddleware::class,
             ProfilerMiddleware::class,
+            \Spatie\Multitenancy\Http\Middleware\NeedsTenant::class,
         ],
     ];
 
