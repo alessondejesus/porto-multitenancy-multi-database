@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMailTemplatesTable extends Migration
+class CreateLandLordMailTemplatesTable extends Migration
 {
     /**
      * Run the migrations.
