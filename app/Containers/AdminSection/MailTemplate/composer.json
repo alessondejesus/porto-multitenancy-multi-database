@@ -1,0 +1,6 @@
+{
+  "name": "apiato/mailtemplate",
+  "description": "MailTemplate Container for apiato.",
+  "require": {
+  }
+}
