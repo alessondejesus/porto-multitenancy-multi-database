@@ -17,7 +17,7 @@ class CreatePermissionTask extends Task
         $this->repository = $repository;
     }
 
-    public function run(int $id, string $name, string $description = null, string $displayName = null, string $group = null): Permission
+    public function run($id, string $name, string $description = null, string $displayName = null, string $group = null): Permission
     {
         app()['cache']->forget('spatie.permission.cache');
 
