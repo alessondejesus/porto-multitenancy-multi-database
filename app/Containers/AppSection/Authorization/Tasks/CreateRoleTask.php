@@ -17,16 +17,17 @@ class CreateRoleTask extends Task
         $this->repository = $repository;
     }
 
-    public function run(string $name, string $description = null, string $displayName = null, int $level = 0): Role
+    public function run(int $id, string $name, string $description = null, string $displayName = null, int $level = 0): Role
     {
         app()['cache']->forget('spatie.permission.cache');
 
         try {
             $role = $this->repository->create([
-                'name' => strtolower($name),
-                'description' => $description,
-                'display_name' => $displayName,
-                'guard_name' => 'web',
+                'id' => $id,
+                'name' => strtolower(trim($name)),
+                'description' => trim($description),
+                'display_name' => trim($displayName),
+                'guard_name' => 'api',
                 'level' => $level,
             ]);
         } catch (Exception $exception) {
