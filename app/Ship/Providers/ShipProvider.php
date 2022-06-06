@@ -49,9 +49,6 @@ class ShipProvider extends MainProvider
             $this->app->register(TelescopeServiceProvider::class);
         }
 
-        Passport::ignoreMigrations();
-        Telescope::ignoreMigrations();
-
         parent::register();
     }
 }

@@ -12,9 +12,18 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('email');
+
+            $table->boolean('is_active')->default(true); //published
+
+            $table->json('attributes')->nullable();
+
             $table->string('prefixed_id')->nullable()->unique();
             $table->timestamps();
-            //$table->softDeletes();
+            $table->softDeletes();
         });
     }
 

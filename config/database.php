@@ -110,11 +110,9 @@ return [
             'prefix_indexes' => true,
         ],
 
-
-
         'tenant' => [
             'driver' => 'mysql',
-            'database' => null,
+            'database' => 'tenant_pousadinha_alezim_66',
             'host' => env('DB_HOST', '127.0.0.1'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),

@@ -2,6 +2,7 @@
 
 namespace App\Containers\AdminSection\Property\Data\Repositories;
 
+use App\Containers\AdminSection\Property\Models\Property;
 use App\Ship\Parents\Repositories\Repository;
 
 class PropertyRepository extends Repository
@@ -13,4 +14,9 @@ class PropertyRepository extends Repository
         'id' => '=',
         // ...
     ];
+
+    public function model(): string
+    {
+        return Property::class;
+    }
 }

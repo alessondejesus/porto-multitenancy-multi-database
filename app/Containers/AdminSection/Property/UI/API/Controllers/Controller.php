@@ -18,10 +18,12 @@ use Illuminate\Http\JsonResponse;
 
 class Controller extends ApiController
 {
-    public function createProperty(CreatePropertyRequest $request): JsonResponse
+    public function createProperty(CreatePropertyRequest $request): array
     {
+        //Implementar form request, database unique on landlord, etc...
+
         $property = app(CreatePropertyAction::class)->run($request);
-        return $this->created($this->transform($property, PropertyTransformer::class));
+        return $this->transform($property, PropertyTransformer::class);
     }
 
     public function findPropertyById(FindPropertyByIdRequest $request): array

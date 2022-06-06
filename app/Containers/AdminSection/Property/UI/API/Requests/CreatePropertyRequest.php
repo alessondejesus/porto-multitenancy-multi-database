@@ -35,7 +35,8 @@ class CreatePropertyRequest extends Request
     public function rules(): array
     {
         return [
-            // 'id' => 'required'
+             'name' => 'required',
+             'slug' => 'required'
         ];
     }
 
